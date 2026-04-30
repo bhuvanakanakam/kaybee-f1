@@ -1,0 +1,28 @@
+# Bhuvana's Pit Wall — .gitignore
+
+# FastF1 cache (can be 100 MB+ per race weekend)
+cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Env & secrets
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
