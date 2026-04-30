@@ -381,10 +381,10 @@ body {
 /* ── Driver cards (new design) ────────────────────────────────── */
 .dc {
   display: grid;
-  grid-template-columns: 38px 52px 1fr auto;
+  grid-template-columns: 30px 40px 1fr auto;
   align-items: center;
   gap: 0 12px;
-  padding: 14px 24px 13px;
+  padding: 11px 22px 10px;
   border-bottom: 1px solid var(--rule-light);
   position: relative;
   transition: background .2s, transform .2s;
@@ -393,52 +393,56 @@ body {
 }
 .dc::before {
   content: '';
-  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
   background: var(--tc, var(--ink-3));
 }
 .dc:last-child { border-bottom: none; }
-.dc:hover { background: var(--paper-2); transform: translateX(3px); }
+.dc:hover { background: var(--paper-2); transform: translateX(2px); }
 
 /* Leader highlight */
-.dc.dc-lead { background: linear-gradient(90deg,rgba(212,160,23,.12) 0%,transparent 55%); }
+.dc.dc-lead { background: linear-gradient(90deg,rgba(212,160,23,.1) 0%,transparent 55%); }
 .dc.dc-lead .dc-pos { color: var(--gold); }
 .dc.dc-lead .dc-pts { color: var(--gold); }
 
 /* MAX special treatment */
-.dc.fav-max { background: linear-gradient(90deg,rgba(54,113,198,.09) 0%,transparent 65%); }
+.dc.fav-max { background: linear-gradient(90deg,rgba(54,113,198,.08) 0%,transparent 65%); }
 .dc.fav-max::before { background: var(--redbull) !important; }
-.dc.fav-max:hover   { background: linear-gradient(90deg,rgba(54,113,198,.16) 0%,var(--paper-2) 65%); }
+.dc.fav-max:hover   { background: linear-gradient(90deg,rgba(54,113,198,.15) 0%,var(--paper-2) 65%); }
 
 /* Other favs */
-.dc.fav-other { background: linear-gradient(90deg,rgba(225,6,0,.05) 0%,transparent 65%); }
+.dc.fav-other { background: linear-gradient(90deg,rgba(225,6,0,.04) 0%,transparent 65%); }
 
 .dc-pos {
-  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
-  color: var(--ink-2); font-variant-numeric: tabular-nums; text-align: right;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  color: var(--ink-3); font-variant-numeric: tabular-nums; text-align: right;
 }
+/* Team colour badge */
 .dc-code {
-  font-family: var(--font-mono); font-size: 17px; font-weight: 700;
-  letter-spacing: .04em; text-align: left;
-  /* color set inline via style="color:var(--tc)" */
+  font-family: var(--font-mono); font-size: 9px; font-weight: 800;
+  letter-spacing: .06em; text-align: center;
+  background: var(--tc, #444);
+  display: flex; align-items: center; justify-content: center;
+  height: 26px; padding: 0 3px;
+  /* text color set inline */
 }
-.dc-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.dc-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .dc-name {
-  font-family: var(--font-serif); font-size: 15px; font-weight: 500;
+  font-family: var(--font-serif); font-size: 14px; font-weight: 500;
   color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .dc-sub {
-  font-family: var(--font-mono); font-size: 9px; color: var(--ink-3);
-  letter-spacing: .04em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-3);
+  letter-spacing: .03em; text-transform: uppercase;
 }
-.dc-gap { color: var(--ink-2); font-family: var(--font-mono); font-size: 10px; font-weight: 500; }
+.dc-gap { color: var(--racing-deep); font-family: var(--font-mono); font-size: 9px; font-weight: 600; }
 
 .dc-right { text-align: right; flex-shrink: 0; }
 .dc-pts {
-  font-family: var(--font-mono); font-size: 20px; font-weight: 700;
+  font-family: var(--font-mono); font-size: 18px; font-weight: 700;
   color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1;
 }
 .dc-pts-lbl {
-  font-family: var(--font-mono); font-size: 8px; color: var(--ink-3);
+  font-family: var(--font-mono); font-size: 7.5px; color: var(--ink-3);
   letter-spacing: .12em; text-transform: uppercase; margin-top: 3px;
 }
 
@@ -519,7 +523,7 @@ body {
 .ws-title { font-family:var(--font-serif); font-size:28px; font-weight:500; color:var(--ink); }
 .ws-title em { color:var(--racing); font-style:italic; }
 .watch-grid {
-  display:grid; grid-template-columns:1fr 1.6fr 1fr;
+  display:grid; grid-template-columns:1fr 1.5fr;
   border:2px solid var(--ink); background:var(--paper);
 }
 .wc {
@@ -531,6 +535,8 @@ body {
 /* Primary watch card */
 .wc-primary { background:rgba(225,6,0,.07); border-left:4px solid var(--racing); text-decoration:none; transition:background .2s; cursor:pointer; }
 .wc-primary:hover { background:rgba(225,6,0,.13); }
+.wc-cta.live-now { background:var(--racing); animation:blink 1.4s ease infinite; }
+.wc-cta.live-now:hover { animation:none; background:var(--racing-hot); }
 .wc-icon { font-size:26px; margin-bottom:4px; line-height:1; }
 .wc-label { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--ink); }
 .wc-sublabel { font-family:var(--font-mono); font-size:10px; color:var(--ink-3); letter-spacing:.1em; }
@@ -630,8 +636,8 @@ body {
   font-variant-numeric:tabular-nums; line-height:1;
 }
 .hist-pos.p1 { color:var(--gold); }
-.hist-pos.p2 { color:#888; }
-.hist-pos.p3 { color:#cd9060; }
+.hist-pos.p2 { color:#8a8a8a; }
+.hist-pos.p3 { color:#b06530; }
 .hist-pos.mid { color:var(--ink-2); }
 .hist-pos.low { color:var(--ink-3); }
 .hist-pos.na  { color:var(--ink-3); font-size:14px; }
@@ -674,7 +680,7 @@ body {
   .cd-num { font-size:30px; }
   .countdown { gap:5px; }
   .cd-cell { padding:14px 5px 11px; }
-  .dc { grid-template-columns:32px 44px 1fr auto; gap:0 8px; }
+  .dc { grid-template-columns:28px 36px 1fr auto; gap:0 8px; }
   .hist-header, .hist-row { grid-template-columns:70px 1fr 1fr 1fr 1fr; }
   .hist-d-code { font-size:12px; }
 }
@@ -846,7 +852,7 @@ body {
       <div class="wc-label">F1 TV</div>
       <div class="wc-sublabel">f1tv.formula1.com</div>
       <div class="wc-sublabel" style="margin-top:4px;color:var(--ink-3)">Live race coverage · Onboards · Radio</div>
-      <a class="wc-cta" href="https://f1tv.formula1.com" target="_blank" rel="noopener noreferrer">Watch Now →</a>
+      <a class="wc-cta" id="watchCta" href="https://f1tv.formula1.com" target="_blank" rel="noopener noreferrer">Watch Now →</a>
     </a>
 
     <!-- Weekend schedule (populated by JS) -->
@@ -857,18 +863,6 @@ body {
         <div class="pit-loading-dark">Loading session times…</div>
       </div>
     </div>
-
-    <!-- F1 App -->
-    <a class="wc wc-app" href="https://www.formula1.com/en/information/f1-app.html" target="_blank" rel="noopener noreferrer">
-      <div class="wc-icon">📱</div>
-      <div class="wc-label">F1 App</div>
-      <div class="wc-sublabel">iOS &amp; Android</div>
-      <div class="wc-sublabel" style="margin-top:8px;color:var(--ink-3)">Live timing · Track map · Driver tracker</div>
-      <div style="margin-top:14px;font-family:var(--font-mono);font-size:9px;color:var(--ink-3);letter-spacing:.1em">
-        ALSO ON
-      </div>
-      <a class="wc-cta" href="https://www.formula1.com" target="_blank" rel="noopener noreferrer" style="margin-top:6px;background:var(--carbon);color:#fff;">F1.com →</a>
-    </a>
 
   </div>
 </section>
@@ -1068,10 +1062,10 @@ function driverRowHTML(d, rank1Pts, delay) {
     <div class="dc ${d.pos === 1 ? 'dc-lead' : ''} ${maxClass}"
          style="--tc:${d.color}; animation-delay:${delay}s;">
       <div class="dc-pos">${pad2(d.pos)}</div>
-      <div class="dc-code" style="color:${d.color}">${d.code}</div>
+      <div class="dc-code" style="background:${d.color};color:${d.textColor}">${d.code}</div>
       <div class="dc-body">
         <div class="dc-name">${d.driver}${badge}</div>
-        <div class="dc-sub">${d.team}${d.nat ? ' · ' + (d.nat||'').slice(0,3).toUpperCase() : ''}${gap ? ' · <span class="dc-gap">' + gap + '</span>' : ''}</div>
+        <div class="dc-sub">${d.team}${gap ? ' <span class="dc-gap">' + gap + '</span>' : ''}</div>
       </div>
       <div class="dc-right">
         <div class="dc-pts">${d.pts.toFixed(0)}</div>
@@ -1136,6 +1130,8 @@ function parseNextRace(data) {
   if (!races?.length) return null;
   const r = races[0];
   const t = r.time || '13:00:00Z';
+  const sessionDT = (obj) => obj?.date && obj?.time
+    ? new Date(`${obj.date}T${obj.time.replace('Z','+00:00')}`) : null;
   return {
     round: +r.round, name: r.raceName,
     circuit: r.Circuit.circuitName,
@@ -1143,11 +1139,17 @@ function parseNextRace(data) {
     country: r.Circuit.Location.country,
     date: r.date, time: t,
     datetime: `${r.date}T${t.replace('Z','+00:00')}`,
-    qualifying: r.Qualifying?.date || null,
-    fp1: r.FirstPractice?.date || null,
-    fp2: r.SecondPractice?.date || null,
-    fp3: r.ThirdPractice?.date || null,
-    sprint: r.Sprint?.date || null,
+    qualifying:    r.Qualifying?.date    || null,
+    qualifyingDT:  sessionDT(r.Qualifying),
+    fp1:           r.FirstPractice?.date || null,
+    fp1DT:         sessionDT(r.FirstPractice),
+    fp2:           r.SecondPractice?.date || null,
+    fp2DT:         sessionDT(r.SecondPractice),
+    fp3:           r.ThirdPractice?.date  || null,
+    fp3DT:         sessionDT(r.ThirdPractice),
+    sprint:        r.Sprint?.date || null,
+    sprintDT:      sessionDT(r.Sprint),
+    raceDT:        new Date(`${r.date}T${t.replace('Z','+00:00')}`),
   };
 }
 
@@ -1472,41 +1474,54 @@ function applyToDOM({ drivers, cons, nr, lr, pd, winners, sched }) {
 }
 
 /* ── Watch schedule builder ──────────────────────────────────── */
+function fmtSessionTime(dt) {
+  if (!dt || isNaN(dt.getTime())) return null;
+  return dt.toLocaleString([], {
+    month:'short', day:'numeric',
+    hour:'2-digit', minute:'2-digit', hour12:false,
+  });
+}
+
 function buildWatchSchedule(nr) {
   const wsRound    = document.getElementById('wsRound');
   const wsName     = document.getElementById('wsName');
   const wsSessions = document.getElementById('wsSessions');
+  const ctaBtn     = document.getElementById('watchCta');
   if (!wsRound || !wsName || !wsSessions) return;
 
   wsRound.textContent = `Round ${pad2(nr.round)} · ${nr.country}`;
   wsName.textContent  = nr.name;
 
-  const sessions = [];
-  if (nr.fp1)         sessions.push({ name:'FP1',   date:nr.fp1 });
-  if (nr.fp2)         sessions.push({ name:'FP2',   date:nr.fp2 });
-  if (nr.sprint)      sessions.push({ name:'Sprint', date:nr.sprint });
-  if (nr.fp3)         sessions.push({ name:'FP3',   date:nr.fp3 });
-  if (nr.qualifying)  sessions.push({ name:'Quali', date:nr.qualifying });
-  sessions.push({ name:'Race',  date:nr.date });
-
-  if (sessions.length === 1) {
-    /* Only race date known */
-    wsSessions.innerHTML = `
-      <div class="wc-session">
-        <span class="wc-sess-name">Race</span>
-        <span class="wc-sess-time">${fmtDate(nr.date)}</span>
-      </div>
-      <div class="wc-session" style="margin-top:6px;">
-        <span class="wc-sess-name" style="font-size:8px;color:var(--ink-3)">Full schedule on F1.com</span>
-      </div>`;
-    return;
+  /* LIVE NOW: race window = start to start + 2.5 hrs */
+  const now = Date.now();
+  const raceStart = nr.raceDT?.getTime();
+  const isLive = raceStart && now >= raceStart && now <= raceStart + 9e6;
+  if (ctaBtn) {
+    ctaBtn.textContent = isLive ? '🔴 LIVE NOW →' : 'Watch Now →';
+    if (isLive) ctaBtn.classList.add('live-now');
+    else ctaBtn.classList.remove('live-now');
   }
 
-  wsSessions.innerHTML = sessions.map(s => `
-    <div class="wc-session">
-      <span class="wc-sess-name">${s.name}</span>
-      <span class="wc-sess-time">${fmtDate(s.date)}</span>
-    </div>`).join('');
+  const sessions = [];
+  if (nr.fp1DT)        sessions.push({ name:'FP1',    dt:nr.fp1DT });
+  if (nr.fp2DT)        sessions.push({ name:'FP2',    dt:nr.fp2DT });
+  if (nr.sprintDT)     sessions.push({ name:'Sprint', dt:nr.sprintDT });
+  if (nr.fp3DT)        sessions.push({ name:'FP3',    dt:nr.fp3DT });
+  if (nr.qualifyingDT) sessions.push({ name:'Quali',  dt:nr.qualifyingDT });
+  sessions.push({ name:'Race', dt:nr.raceDT });
+
+  const toShow = sessions.filter(s => s.dt);
+  if (!toShow.length) toShow.push({ name:'Race', dt:null, fallback:nr.date });
+
+  wsSessions.innerHTML = toShow.map(s => {
+    const isNow   = s.dt && now >= s.dt.getTime() && now <= s.dt.getTime() + 9e6;
+    const timeStr = s.dt ? fmtSessionTime(s.dt) : (s.fallback ? fmtDate(s.fallback) : '—');
+    return `
+      <div class="wc-session">
+        <span class="wc-sess-name">${s.name}</span>
+        <span class="wc-sess-time${isNow?' now':''}">${timeStr}${isNow?' · LIVE':''}</span>
+      </div>`;
+  }).join('');
 }
 
 /* ── Driver History Lab ──────────────────────────────────────── */
@@ -1517,9 +1532,14 @@ async function loadDriverHistory() {
   const TRACKED = [
     { id:'max_verstappen', alt:'verstappen', name:'Max Verstappen',   abbr:'VER', color:'#3671C6', fav:'max' },
     { id:'leclerc',        alt:'leclerc',    name:'Charles Leclerc',  abbr:'LEC', color:'#E8002D', fav:true  },
-    { id:'sainz',          alt:'sainz',      name:'Carlos Sainz',     abbr:'SAI', color:'#E8002D', fav:true  },
     { id:'antonelli',      alt:'antonelli',  name:'Kimi Antonelli',   abbr:'ANT', color:'#27F4D2', fav:true  },
+    { id:'sainz',          alt:'sainz',      name:'Carlos Sainz',     abbr:'SAI', color:'#E8002D', fav:true  },
+    { id:'hamilton',       alt:'hamilton',   name:'Lewis Hamilton',   abbr:'HAM', color:'#E8002D', fav:false },
+    { id:'russell',        alt:'russell',    name:'George Russell',   abbr:'RUS', color:'#27F4D2', fav:false },
     { id:'norris',         alt:'norris',     name:'Lando Norris',     abbr:'NOR', color:'#FF8000', fav:false },
+    { id:'piastri',        alt:'piastri',    name:'Oscar Piastri',    abbr:'PIA', color:'#FF8000', fav:false },
+    { id:'alonso',         alt:'alonso',     name:'Fernando Alonso',  abbr:'ALO', color:'#229971', fav:false },
+    { id:'perez',          alt:'perez',      name:'Sergio Perez',     abbr:'PER', color:'#3671C6', fav:false },
   ];
 
   try {
@@ -1563,8 +1583,8 @@ async function loadDriverHistory() {
         if (cur) s26 = { pos:cur.pos, pts:cur.pts, wins:cur.wins };
       }
       const nameStyle = d.fav === 'max'
-        ? `style="color:#7eb4f8;text-shadow:0 0 12px rgba(54,113,198,.7)"`
-        : d.fav ? `style="color:${d.color}"` : '';
+        ? `style="color:#1a44a0;font-weight:800"`
+        : d.fav ? `style="color:${d.color === '#27F4D2' ? '#0a8a78' : d.color}"` : '';
       return `
         <div class="hist-row">
           <div class="hist-driver-cell">
